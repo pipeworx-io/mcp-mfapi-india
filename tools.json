@@ -1,0 +1,58 @@
+[
+  {
+    "name": "search_schemes",
+    "description": "Find Indian mutual-fund scheme codes by fund name. Fetches the full MFAPI scheme list (~16,000 schemes) and filters client-side by case-insensitive token match (every word in the query must appear in the scheme name, any order — so \"SBI Bluechip\" matches \"SBI Blue Chip Fund\"). This is the way to obtain a scheme_code for get_nav_history and latest_nav. Note: this call downloads the full list (~1-2MB). Keyless.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Fund-name fragment, e.g. \"SBI Bluechip\", \"Parag Parikh\", \"index fund\". Matched case-insensitively against scheme names."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max schemes to return (default 15, max 30)."
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  },
+  {
+    "name": "get_nav_history",
+    "description": "Get a mutual-fund scheme's NAV (net asset value) history from MFAPI — fund house, category, ISIN, latest NAV, and the most-recent NAV points (newest first). Use search_schemes to find a scheme_code first (e.g. 118550). Keyless.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "scheme_code": {
+          "type": "number",
+          "description": "AMFI scheme code, e.g. 118550. Get one from search_schemes."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Number of most-recent NAV points to return (default 30, max 120)."
+        }
+      },
+      "required": [
+        "scheme_code"
+      ]
+    }
+  },
+  {
+    "name": "latest_nav",
+    "description": "Fast single-value lookup of a mutual-fund scheme's latest NAV (net asset value) from MFAPI. Returns the most recent NAV, its date, and basic scheme metadata. Use search_schemes to find a scheme_code first (e.g. 118550). Keyless.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "scheme_code": {
+          "type": "number",
+          "description": "AMFI scheme code, e.g. 118550. Get one from search_schemes."
+        }
+      },
+      "required": [
+        "scheme_code"
+      ]
+    }
+  }
+]
