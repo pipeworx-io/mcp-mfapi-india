@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-mfapi-india",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "MFAPI.in MCP — Indian mutual-fund NAV (net asset value) data.",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "mfapi-india",
     "gatewaySlug": "mfapi-india",
-    "sourceHash": "v1-4fcdfbbbe86f8d06c496e78d1e0c273e8f528f9b56b7c7681fd8d13bd5f55d6c",
-    "sourceCommit": "5c89d6abb778d45da5d92002eb251978622bedf9"
+    "sourceHash": "v1-38dc7227ddc5ca92c8b1ca17979cb97276ceb5a69e95024ca2688378b1c45166",
+    "sourceCommit": "56cf550e46fed96c0101a3877ccaf8357eecf016"
   }
 }
